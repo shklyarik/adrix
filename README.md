@@ -50,6 +50,15 @@ pnpm tauri build --bundles appimage    # only the AppImage
 scripts/install-desktop.sh             # add Adrix to the desktop menu (rofi drun, GNOME, KDE…)
 ```
 
+## Nightly builds
+
+Every push to `main` (`.github/workflows/nightly.yml`) builds a Linux AppImage and publishes
+it to the rolling **nightly** pre-release. The latest build always has the same URL:
+
+```
+https://github.com/shklyarik/adrix/releases/download/nightly/Adrix-nightly-x86_64.AppImage
+```
+
 ## Releases
 
 `.github/workflows/release.yml` builds:
