@@ -1,0 +1,23 @@
+{
+  "name": "adrix",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Desktop Adminer with SSH tunnels (Tauri + Rust + static PHP)",
+  "type": "module",
+  "scripts": {
+    "deps": "node scripts/fetch-deps.mjs",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.12.4"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.6"
+  },
+  "packageManager": "pnpm@12.11.2",
+  "license": "MIT"
+}

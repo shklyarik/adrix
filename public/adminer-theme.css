@@ -1,0 +1,78 @@
+/* Injected into Adminer by the Adrix plugin (php/adrix-plugin.php). Small desktop tweaks.
+ *
+ * WebKitGTK draws form controls with the GTK theme (rounded pills, big padding, own arrows),
+ * so Adminer looks different from Chrome. Flatten them to a browser-like look using
+ * Adminer's own palette variables (--bg, --fg, --dim, --lit from default.css / dark.css). */
+
+html { scrollbar-gutter: stable; }
+
+:root {
+  --adrix-border: color-mix(in srgb, var(--fg) 45%, var(--bg));
+  --adrix-border-hover: color-mix(in srgb, var(--fg) 70%, var(--bg));
+  --adrix-field: color-mix(in srgb, var(--bg) 92%, var(--fg));
+  --adrix-button: color-mix(in srgb, var(--bg) 85%, var(--fg));
+  --adrix-button-hover: color-mix(in srgb, var(--bg) 75%, var(--fg));
+  --adrix-focus: #4f83ff;
+  accent-color: var(--adrix-focus);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="image"]):not([type="file"]):not([type="hidden"]),
+select,
+textarea,
+button:not(.link) {
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  line-height: normal;
+  color: var(--fg);
+  background-color: var(--adrix-field);
+  border: 1px solid var(--adrix-border);
+  border-radius: 3px;
+  padding: 2px 4px;
+  min-height: 0;
+  margin: 1px 0;
+}
+
+input:hover, select:hover, textarea:hover { border-color: var(--adrix-border-hover); }
+
+input:focus, select:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid var(--adrix-focus);
+  outline-offset: -1px;
+}
+
+/* single-line selects: custom arrow drawn with currentColor (works in both themes) */
+select:not([multiple]):not([size]) {
+  padding-right: 20px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 11px) 55%, calc(100% - 7px) 55%;
+  background-size: 4px 4px;
+  background-repeat: no-repeat;
+}
+select[multiple], select[size] { padding: 1px; }
+option { background-color: var(--bg); color: var(--fg); }
+
+/* buttons (Save, Select, …) */
+button:not(.link),
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  background-color: var(--adrix-button);
+  padding: 2px 8px;
+  cursor: pointer;
+}
+button:not(.link):hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover { background-color: var(--adrix-button-hover); }
+
+/* GTK checkboxes/radios are larger than in Chrome */
+input[type="checkbox"], input[type="radio"] {
+  width: 13px;
+  height: 13px;
+  margin: 3px 3px 3px 4px;
+}
+
+/* number spinners: GTK draws tall +/- buttons */
+input[type="number"]::-webkit-inner-spin-button { opacity: .6; }

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-reorder-connections"
+description = "Enables the reorder_connections command without any pre-configured scope."
+commands.allow = ["reorder_connections"]
+
+[[permission]]
+identifier = "deny-reorder-connections"
+description = "Denies the reorder_connections command without any pre-configured scope."
+commands.deny = ["reorder_connections"]
